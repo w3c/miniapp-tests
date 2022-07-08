@@ -65,8 +65,8 @@ async function main(new_metadata: string[], cut_off_pattern: string): Promise<vo
  * The extra metadata items to be added to the package metadata
  */
 const DC_Rights: string[] = [
-    '    "dcterms:rights": "https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document",',
-    '    "dcterms:rightsHolder": "https://www.w3.org",',
+    '   "dcterms:rights": "https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document",',
+    '   "dcterms:rightsHolder": "https://www.w3.org",',
 ]
 
 /**

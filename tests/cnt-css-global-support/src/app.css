@@ -4,4 +4,7 @@
  * common styles and look and feel aspects of the pages within the MiniApp. 
  */ 
 
- 
+div {
+    background-color: yellow;
+    color: #000000;
+}
