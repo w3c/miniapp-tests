@@ -1,7 +1,6 @@
 {
     "name": "(Implementation's name)",
     "ref": "https://www.example.com",
-    "variant" : "(optional version -i.e., Android, iOS, etc.)",    
     "tests": {
         "cnt-css-global-support": null,
         "mnf-window-fullscreen-default": null,
