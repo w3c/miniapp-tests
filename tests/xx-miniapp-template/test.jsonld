@@ -1,0 +1,27 @@
+{
+  "@context": {
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "earl": "http://www.w3.org/ns/earl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "foaf:page": {
+      "@type": "@id"
+    }
+  },
+  "dcterms:rights": "https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document",
+  "dcterms:rightsHolder": "https://www.w3.org",
+  "@type": "earl:TestCase",
+  "dc:coverage": "TODO: Report Category",
+  "dcterms:conformsTo": "must",
+  "dc:creator": "TODO: Your Name",
+  "dc:date": "TODO: 2022-06-01",
+  "dc:title": "TODO: Concise test title",
+  "dc:identifier": "TODO: test-id",
+  "dc:description": "TODO: A description of the test for the generated test report.",
+  "dcterms:isReferencedBy": [
+    "TODO: https://www.w3.org/TR/epub-33/#spec-anchor",
+    "TODO: https://www.w3.org/TR/epub-rs-33/#spec-anchor"
+  ],
+  "dcterms:modified": "TODO: 2021-01-01T00:00:00Z"
+}

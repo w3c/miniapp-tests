@@ -1,0 +1,26 @@
+{
+    "final": false,
+    "document_mappings": [
+        {
+            "from": "https://www.w3.org/TR/miniapp-lifecycle/",
+            "to": "https://w3c.github.io/miniapp-lifecycle/"
+        },
+        {
+            "from": "https://www.w3.org/TR/miniapp-packaging/",
+            "to": "https://w3c.github.io/miniapp-packaging/"
+        },
+        {
+            "from": "https://www.w3.org/TR/miniapp-manifest/",
+            "to": "https://w3c.github.io/miniapp-manifest/"
+        }
+    ],
+    "coverage_labels": [
+        "Packaging",
+        "Manifest",
+        "Content",
+        "Internationalization",
+        "Scripting",
+        "Lifecycle",
+        "APIs"
+    ]
+}

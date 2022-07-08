@@ -1,0 +1,26 @@
+{
+  "@context": {
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "earl": "http://www.w3.org/ns/earl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "foaf:page": {
+      "@type": "@id"
+    }
+  },
+  "dcterms:rights": "https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document",
+  "dcterms:rightsHolder": "https://www.w3.org",
+  "@type": "earl:TestCase",
+  "dc:coverage": "Content",
+  "dcterms:conformsTo": "must",
+  "dc:creator": "Martin Alvarez",
+  "dc:date": "2022-07-08",
+  "dc:title": "Global CSS stylesheet affects all pages",
+  "dc:identifier": "cnt-css-global-support",
+  "dc:description": "Global CSS stylesheet must affect all pages. The test includes CSS properties in the app.css over that will affect the text on the entry page, showing a black text on yellow background.",
+  "dcterms:isReferencedBy": [
+    "https://www.w3.org/TR/miniapp-packaging/#sec-miniapp-resources-css"
+  ],
+  "dcterms:modified": "2022-07-08T00:00:00Z"
+}

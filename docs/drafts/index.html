@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+	<head>
+		<meta charset="utf-8" />
+		<title>MiniApp Tests</title>
+		<script src="https://www.w3.org/Tools/respec/respec-w3c" class="remove"></script>
+		<style>
+			/* Table zebra style... */
+			table.zebra {
+				font-size: inherit;
+				font: 100%;
+				margin: 1em;
+				width: 100% !important;
+			}
+
+			table.zebra td {
+				padding-left: 0.3em;
+			}
+
+			table.zebra th {
+				font-weight: bold;
+				text-align: center;
+				font-size: 100%;
+				background: hsl(180, 30%, 50%);
+				color: #fff;
+			}
+
+			table.zebra th a:link {
+				color: #fff;
+			}
+
+			table.zebra th a:visited {
+				color: #aaa;
+			}
+
+			table.zebra tr:nth-child(even) {
+				background-color: hsl(180, 30%, 93%)
+			}
+
+			table.zebra th {
+				border-bottom: 1px solid #bbb;
+				padding: .2em 1em;
+			}
+
+			table.zebra td {
+				border-bottom: 1px solid #ddd;
+				padding: .2em 1em;
+			}
+
+			td a {
+				text-decoration: none !important;
+			}
+
+			td summary {
+				font-weight: normal;
+			}
+
+			td.pass {
+				background-color: green;
+			}
+
+			td.fail {
+				background-color: red;
+			}
+
+			col.col_id {
+				width: 20%;
+			}
+
+			col.col_title {
+				width: 20%;
+			}
+
+			col.col_req {
+				width: 5%;
+				text-align: center;    
+			}
+
+			col.col_sref {
+				width: 5%;
+				text-align: center;    
+			}
+
+			col.col_tref {
+				width: 5%;
+				text-align: center;
+			}
+
+			div#button_container {
+				display: flex; 
+				justify-content: center; 
+				align-items: center;				
+			}
+			button#should_may_visibility {
+				cursor: pointer;
+				font-size: 110%;
+				font-style: italic;
+				text-align: center;
+				border-radius: 10px;
+				background-color: hsl(180, 30%, 50%);
+				color: white;
+			}
+			button#should_may_visibility span {
+				font-size: 90%;
+			}
+
+		</style>
+		<script class="remove">
+			var respecConfig = {
+				wgPublicList: "public-miniapp",
+				latestVersion: "https://w3c.github.io/miniapp-tests/",
+				specStatus: "base",
+				noRecTrack: true,
+				publishDate: "2022-07-08",
+				shortName: "miniapp-tests",
+				edDraftURI: "https://w3c.github.io/miniapp-tests/results/drafts/",
+                copyrightStart: "2021",
+				editors:[
+					{
+						name: "Martin Alvarez-Espinar",
+						companyURL: "https://www.huawei.com/",
+						company: "Huawei",
+						w3cid: 125049,
+					}, 
+				],
+				processVersion: 2020,
+				includePermalinks: true,
+				permalinkEdge: true,
+				permalinkHide: false,
+				github: {
+					repoURL: "https://github.com/w3c/miniapp-tests",
+					branch: "main"
+				}
+			};
+		</script>
+		<script>
+			// The current visibility state is stored in a local storage
+			// This means that the requested visibility is kept (in the same browser) and
+			// is valid across the two report files.
+			const ROW_HIDE = "true";
+			const ROW_SHOW = "false";
+			const STORAGE_KEY = 'hide_should_may_tests';
+
+			function row_visibility(current_state) {
+				// Modify the inline text to reflect the visibility status
+				const span = document.getElementById("test_visibility");
+				span.textContent = current_state === ROW_HIDE ? "hidden" : "visible";
+				
+				const change_button = document.getElementById('should_may_visibility');
+				change_button.innerHTML = current_state === ROW_HIDE ? 
+					"Currently showing only the <span>MUST</span> tests; click here to show all the tests" : 
+					"Currently showing all the tests; click here to show only the <span>MUST</span> tests";
+
+				// Collect all relevant `<tr>` elements... 
+				const tr_all = document.querySelectorAll("td.should, td.may");
+
+				// ... and change the visibility
+				for (const td of tr_all) {
+					td.parentNode.hidden = (current_state === ROW_HIDE);
+				}
+			}
+
+			// Button clicked: change the status and regenerate the relevant tables
+			function clicked() {
+				let current_state = localStorage.getItem(STORAGE_KEY) === ROW_HIDE ? ROW_SHOW : ROW_HIDE;
+				localStorage.setItem(STORAGE_KEY, current_state);
+				row_visibility(current_state);
+			}
+
+			window.addEventListener('load', () => {
+				// This is the initial setup
+				// At first run the visibility is not yet set, so it must be set to a default.
+				let current_state = localStorage.getItem(STORAGE_KEY);
+				if (current_state === null) {
+					localStorage.setItem(STORAGE_KEY, ROW_SHOW);
+					current_state = ROW_SHOW;
+				} 
+				row_visibility(current_state);
+				
+				const change_button = document.getElementById('should_may_visibility');
+				change_button.addEventListener('click', clicked);
+			});
+		</script>
+	</head>
+	<body>
+		<section id="abstract">
+			<p>Description of the MiniApp tests.</p>
+		</section>
+		<section id="sotd"></section>
+
+		<section>
+			<h2>Introduction</h2>
+
+			<p>
+				<a href="https://github.com/w3c/miniapp-tests">w3c/miniapp-tests</a> is the repository for the the tests to
+				validate the implementability of W3C's MiniApp specifications, specifically  
+				<a href="https://www.w3.org/TR/miniapp-packaging/">MiniApp Packaging</a> (the specification for the MiniApp format itself) and the
+				<a href="https://www.w3.org/TR/miniapp-lifecycle/">MiniApp Lifecycle</a> (the specification for events related to MiniApp 
+				lifecycle), and <a href="https://www.w3.org/TR/miniapp-manifest/">MiniApp Manifest</a> (the specification for describing and configuring MiniApps through a manifest document).
+			</p>
+
+			<p>
+				The development of the tests is a community effort (see the <a href="#contributors">list of
+				contributors</a>). Everyone is welcome to contribute tests; please read the separate
+				<a href="contributing">contribution guidelines</a> if you are interested.
+			</p>
+
+			<p>This document provides a short overview for each test, grouped into separate tables by test categories. The
+			columns in the tables are as follows:</p>
+			<ol>
+				<li>The identification of each test, linked to the unzipped tests themselves in the GitHub repository.</li>
+				<li>Conformance flag of test (i.e., <code>must</code>, <code>should</code>, or <code>may</code>).</li>
+				<li>Title of the test.</li>
+				<li>Short description of the test.</li>
+				<li>References to the corresponding normative statements or sections in the MiniApp specification(s).</li>
+				<li>Pointer to the (consolidated) implementation status of the test in the separate <a href="results">implementation report</a>.</li>
+			</ol>
+
+			<p>
+				Strictly speaking, the <code>should</code> and <code>may</code> tests are not necessary for the official CR testing of
+				the specifications. These tests are currently <span id="test_visibility"></span> in the tables below; to change their visibility, click the 
+				switch visibility button below.
+			</p>
+		</section>
+
+		<section data-include="fragments/tests.html" data-include-replace="true"></section>
+		<section class="appendix" id="contributors">
+			<h2>Acknowledgements</h2>
+
+			<p>The following experts contributed to the test suite:</p>
+
+			<ul data-include="fragments/creators.html" data-include-replace="true"></ul>	
+		</section>
+
+	</body>
+</html>
