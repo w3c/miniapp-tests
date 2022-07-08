@@ -1,0 +1,25 @@
+{
+    "dir": "ltr",
+    "lang": "en",
+    "app_id": "org.example.miniapp",
+    "name": "MiniApp test",
+    "pages": [
+        "pages/home/home"
+      ],
+      "version": {
+      "name": "1.0.0",
+      "code": 1
+    },
+    "icons": [
+      {
+        "label": "Red lightning",
+        "src": "common/icon48x48.png",
+        "sizes": "48x48"
+      }
+    ],
+    "platform_version":{
+      "min_code": 1,
+      "release_type": "Beta",
+      "target_code": 1
+    }
+}

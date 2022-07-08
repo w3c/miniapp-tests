@@ -1,0 +1,33 @@
+Attic/
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# TypeScript v1 declaration files
+typings/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# VS data
+.vscode
+
+# Local tests
+local_tests/
+
+# Null-tests
+reports/null-test.json
+
+todo.md
+tests/.DS_Store
+.DS_Store
+.idea/
+
+.vscode/

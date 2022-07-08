@@ -1,0 +1,15 @@
+{
+    "name": "MiniApp Vendor #1",
+    "ref": "https://example.org/",
+    "variant" : "iOS Version",
+    "tests": {
+        "cnt-css-scoped-support": true,
+        "mnf-window-fullscreen-default": true,
+        "mnf-window-fullscreen-true": false,
+        "mnf-window-orientation-default": true,
+        "mnf-window-orientation-landscape": true,
+        "mnf-window-orientation-portrait": false,
+        "pkg-pages-same-filenames": true,
+        "pkg-root-app-css-empty": true        
+    }
+}

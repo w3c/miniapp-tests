@@ -1,0 +1,25 @@
+{
+    "@context": {
+      "dc": "http://purl.org/dc/elements/1.1/",
+      "dcterms": "http://purl.org/dc/terms/",
+      "foaf": "http://xmlns.com/foaf/0.1/",
+      "earl": "http://www.w3.org/ns/earl#",
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "foaf:page": {
+        "@type": "@id"
+      }
+    },
+    "dcterms:rights": "https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document",
+    "dcterms:rightsHolder": "https://www.w3.org",
+    "@type": "earl:TestCase",
+    "dc:coverage": "Manifest",
+    "dc:creator": ["Martin Alvarez"],
+    "dc:date": "2022-05-25",
+    "dc:title": "Portrait orientation defined in manifest",
+    "dc:identifier": "mnf-window-orientation-portrait",
+    "dc:description": "The window's orientation member is set to portrait in the manifest. The app display must be in portrait mode.",
+    "dcterms:isReferencedBy": [
+      "https://www.w3.org/TR/miniapp-manifest/#dfn-process-the-window-s-orientation-member"
+    ],
+    "dcterms:modified": "2022-05-25T00:00:00Z"
+}

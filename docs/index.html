@@ -1,0 +1,657 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US"><head>
+<meta charset="utf-8">
+<meta name="generator" content="ReSpec 32.1.7">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<style>
+dfn{cursor:pointer}
+.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font-family:"Helvetica Neue",sans-serif;font-size:small;background:#fff;color:#000;box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);border-radius:2px}
+.dfn-panel:not(.docked)>.caret{position:absolute;top:-9px}
+.dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;top:0}
+.dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1}
+.dfn-panel *{margin:0}
+.dfn-panel b{display:block;color:#000;margin-top:.25em}
+.dfn-panel ul a[href]{color:#333}
+.dfn-panel>div{display:flex}
+.dfn-panel a.self-link{font-weight:700;margin-right:auto}
+.dfn-panel .marker{padding:.1em;margin-left:.5em;border-radius:.2em;text-align:center;white-space:nowrap;font-size:90%;color:#040b1c}
+.dfn-panel .marker.dfn-exported{background:#d1edfd;box-shadow:0 0 0 .125em #1ca5f940}
+.dfn-panel .marker.idl-block{background:#8ccbf2;box-shadow:0 0 0 .125em #0670b161}
+.dfn-panel a:not(:hover){text-decoration:none!important;border-bottom:none!important}
+.dfn-panel a[href]:hover{border-bottom-width:1px}
+.dfn-panel ul{padding:0}
+.dfn-panel li{margin-left:1em}
+.dfn-panel.docked{position:fixed;left:.5em;top:unset;bottom:2em;margin:0 auto;max-width:calc(100vw - .75em * 2 - .5em - .2em * 2);max-height:30vh;overflow:auto}
+</style>
+		
+		
+<title>MiniApp Tests</title>
+		
+<style id="respec-mainstyle">
+@keyframes pop{
+0%{transform:scale(1,1)}
+25%{transform:scale(1.25,1.25);opacity:.75}
+100%{transform:scale(1,1)}
+}
+:is(h1,h2,h3,h4,h5,h6,a) abbr{border:none}
+dfn{font-weight:700}
+a.internalDFN{color:inherit;border-bottom:1px solid #99c;text-decoration:none}
+a.externalDFN{color:inherit;border-bottom:1px dotted #ccc;text-decoration:none}
+a.bibref{text-decoration:none}
+.respec-offending-element:target{animation:pop .25s ease-in-out 0s 1}
+.respec-offending-element,a[href].respec-offending-element{text-decoration:red wavy underline}
+@supports not (text-decoration:red wavy underline){
+.respec-offending-element:not(pre){display:inline-block}
+.respec-offending-element{background:url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x}
+}
+#references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}
+cite .bibref{font-style:normal}
+code{color:#c63501}
+th code{color:inherit}
+a[href].orcid{padding-left:4px;padding-right:4px}
+a[href].orcid>svg{margin-bottom:-2px}
+.toc a,.tof a{text-decoration:none}
+a .figno,a .secno{color:#000}
+ol.tof,ul.tof{list-style:none outside none}
+.caption{margin-top:.5em;font-style:italic}
+table.simple{border-spacing:0;border-collapse:collapse;border-bottom:3px solid #005a9c}
+.simple th{background:#005a9c;color:#fff;padding:3px 5px;text-align:left}
+.simple th a{color:#fff;padding:3px 5px;text-align:left}
+.simple th[scope=row]{background:inherit;color:inherit;border-top:1px solid #ddd}
+.simple td{padding:3px 10px;border-top:1px solid #ddd}
+.simple tr:nth-child(even){background:#f0f6ff}
+.section dd>p:first-child{margin-top:0}
+.section dd>p:last-child{margin-bottom:0}
+.section dd{margin-bottom:1em}
+.section dl.attrs dd,.section dl.eldef dd{margin-bottom:0}
+#issue-summary>ul{column-count:2}
+#issue-summary li{list-style:none;display:inline-block}
+details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}
+details.respec-tests-details>*{padding-right:2em}
+details.respec-tests-details[open]{z-index:999999;position:absolute;border:thin solid #cad3e2;border-radius:.3em;background-color:#fff;padding-bottom:.5em}
+details.respec-tests-details[open]>summary{border-bottom:thin solid #cad3e2;padding-left:1em;margin-bottom:1em;line-height:2em}
+details.respec-tests-details>ul{width:100%;margin-top:-.3em}
+details.respec-tests-details>li{padding-left:1em}
+.self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
+aside.example .marker>a.self-link{color:inherit}
+.header-wrapper{display:flex;align-items:baseline}
+:is(h2,h3,h4,h5,h6):not(#toc>h2,#abstract>h2,#sotd>h2,.head>h2){position:relative;left:-.5em}
+:is(h2,h3,h4,h5,h6):not(#toch2)+a.self-link{color:inherit;order:-1;position:relative;left:-1.1em;font-size:1rem;opacity:.5}
+:is(h2,h3,h4,h5,h6)+a.self-link::before{content:"§";text-decoration:none;color:var(--heading-text)}
+:is(h2,h3)+a.self-link{top:-.2em}
+:is(h4,h5,h6)+a.self-link::before{color:#000}
+@media (max-width:767px){
+dd{margin-left:0}
+}
+@media print{
+.removeOnSave{display:none}
+}
+</style>
+		
+<style>
+
+			/* Table zebra style... */
+			table.zebra {
+				font-size: inherit;
+				font: 100%;
+				margin: 1em;
+				width: 100% !important;
+			}
+
+			table.zebra td {
+				padding-left: 0.3em;
+			}
+
+			table.zebra th {
+				font-weight: bold;
+				text-align: center;
+				font-size: 100%;
+				background: hsl(180, 30%, 50%);
+				color: #fff;
+			}
+
+			table.zebra th a:link {
+				color: #fff;
+			}
+
+			table.zebra th a:visited {
+				color: #aaa;
+			}
+
+			table.zebra tr:nth-child(even) {
+				background-color: hsl(180, 30%, 93%)
+			}
+
+			table.zebra th {
+				border-bottom: 1px solid #bbb;
+				padding: .2em 1em;
+			}
+
+			table.zebra td {
+				border-bottom: 1px solid #ddd;
+				padding: .2em 1em;
+			}
+
+			td a {
+				text-decoration: none !important;
+			}
+
+			td summary {
+				font-weight: normal;
+			}
+
+			td.pass {
+				background-color: green;
+			}
+
+			td.fail {
+				background-color: red;
+			}
+
+			col.col_id {
+				width: 20%;
+			}
+
+			col.col_title {
+				width: 20%;
+			}
+
+			col.col_req {
+				width: 5%;
+				text-align: center;    
+			}
+
+			col.col_sref {
+				width: 5%;
+				text-align: center;    
+			}
+
+			col.col_tref {
+				width: 5%;
+				text-align: center;
+			}
+
+			div#button_container {
+				display: flex; 
+				justify-content: center; 
+				align-items: center;				
+			}
+			button#should_may_visibility {
+				cursor: pointer;
+				font-size: 110%;
+				font-style: italic;
+				text-align: center;
+				border-radius: 10px;
+				background-color: hsl(180, 30%, 50%);
+				color: white;
+			}
+			button#should_may_visibility span {
+				font-size: 90%;
+			}
+
+		
+</style>
+		
+		
+<script>
+			// The current visibility state is stored in a local storage
+			// This means that the requested visibility is kept (in the same browser) and
+			// is valid across the two report files.
+			const ROW_HIDE = "true";
+			const ROW_SHOW = "false";
+			const STORAGE_KEY = 'hide_should_may_tests';
+
+			function row_visibility(current_state) {
+				// Modify the inline text to reflect the visibility status
+				const span = document.getElementById("test_visibility");
+				span.textContent = current_state === ROW_HIDE ? "hidden" : "visible";
+				
+				const change_button = document.getElementById('should_may_visibility');
+				change_button.innerHTML = current_state === ROW_HIDE ? 
+					"Currently showing only the <span>MUST</span> tests; click here to show all the tests" : 
+					"Currently showing all the tests; click here to show only the <span>MUST</span> tests";
+
+				// Collect all relevant `<tr>` elements... 
+				const tr_all = document.querySelectorAll("td.should, td.may");
+
+				// ... and change the visibility
+				for (const td of tr_all) {
+					td.parentNode.hidden = (current_state === ROW_HIDE);
+				}
+			}
+
+			// Button clicked: change the status and regenerate the relevant tables
+			function clicked() {
+				let current_state = localStorage.getItem(STORAGE_KEY) === ROW_HIDE ? ROW_SHOW : ROW_HIDE;
+				localStorage.setItem(STORAGE_KEY, current_state);
+				row_visibility(current_state);
+			}
+
+			window.addEventListener('load', () => {
+				// This is the initial setup
+				// At first run the visibility is not yet set, so it must be set to a default.
+				let current_state = localStorage.getItem(STORAGE_KEY);
+				if (current_state === null) {
+					localStorage.setItem(STORAGE_KEY, ROW_SHOW);
+					current_state = ROW_SHOW;
+				} 
+				row_visibility(current_state);
+				
+				const change_button = document.getElementById('should_may_visibility');
+				change_button.addEventListener('click', clicked);
+			});
+		</script>
+	
+<meta name="description" content="Description of the MiniApp tests.">
+<style>
+var{position:relative;cursor:pointer}
+var[data-type]::after,var[data-type]::before{position:absolute;left:50%;top:-6px;opacity:0;transition:opacity .4s;pointer-events:none}
+var[data-type]::before{content:"";transform:translateX(-50%);border-width:4px 6px 0 6px;border-style:solid;border-color:transparent;border-top-color:#000}
+var[data-type]::after{content:attr(data-type);transform:translateX(-50%) translateY(-100%);background:#000;text-align:center;font-family:"Dank Mono","Fira Code",monospace;font-style:normal;padding:6px;border-radius:3px;color:#daca88;text-indent:0;font-weight:400}
+var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
+</style>
+<script id="initialUserConfig" type="application/json">{
+  "wgPublicList": "public-miniapp",
+  "latestVersion": "https://w3c.github.io/miniapp-tests/",
+  "specStatus": "base",
+  "noRecTrack": true,
+  "publishDate": "2022-05-27",
+  "shortName": "miniapp-tests",
+  "edDraftURI": "https://w3c.github.io/miniapp-tests/results/drafts/",
+  "copyrightStart": "2021",
+  "editors": [
+    {
+      "name": "Martin Alvarez-Espinar",
+      "companyURL": "https://www.huawei.com/",
+      "company": "Huawei",
+      "w3cid": 125049
+    }
+  ],
+  "processVersion": 2020,
+  "includePermalinks": true,
+  "permalinkEdge": true,
+  "permalinkHide": false,
+  "github": {
+    "repoURL": "https://github.com/w3c/miniapp-tests",
+    "branch": "main"
+  },
+  "publishISODate": "2022-05-27T00:00:00.000Z",
+  "generatedSubtitle": "27 May 2022"
+}</script>
+<link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/base.css"></head>
+	<body class="h-entry informative"><div class="head">
+    
+    <h1 id="title" class="title">MiniApp Tests</h1> 
+    <p id="w3c-state"> <time class="dt-published" datetime="2022-05-27">27 May 2022</time></p>
+    <details open="">
+      <summary>More details about this document</summary>
+      <dl>
+        
+        <dt>Latest published version:</dt><dd>
+                <a href="https://w3c.github.io/miniapp-tests/">https://w3c.github.io/miniapp-tests/</a>
+              </dd>
+        <dt>Latest editor's draft:</dt><dd><a href="https://w3c.github.io/miniapp-tests/results/drafts/">https://w3c.github.io/miniapp-tests/results/drafts/</a></dd>
+        <dt>History:</dt><dd>
+                    <a href="https://github.com/w3c/miniapp-tests/commits/main">Commit history</a>
+                  </dd>
+        
+        
+        
+        
+        
+        <dt>Editor:</dt><dd class="editor p-author h-card vcard" data-editor-id="125049">
+    <span class="p-name fn">Martin Alvarez-Espinar</span> (<a class="p-org org h-org" href="https://www.huawei.com/">Huawei</a>)
+  </dd>
+        
+        
+        <dt>Feedback:</dt><dd>
+        <a href="https://github.com/w3c/miniapp-tests/">GitHub w3c/miniapp-tests</a>
+        (<a href="https://github.com/w3c/miniapp-tests/pulls/">pull requests</a>,
+        <a href="https://github.com/w3c/miniapp-tests/issues/new/choose">new issue</a>,
+        <a href="https://github.com/w3c/miniapp-tests/issues/">open issues</a>)
+      </dd><dd><a href="mailto:public-miniapp@w3.org?subject=%5Bminiapp-tests%5D%20YOUR%20TOPIC%20HERE">public-miniapp@w3.org</a> with subject line <kbd>[miniapp-tests] <em>… message topic …</em></kbd> (<a rel="discussion" href="https://lists.w3.org/Archives/Public/public-miniapp">archives</a>)</dd>
+        
+        
+      </dl>
+    </details>
+    
+    
+    <p class="copyright">
+    <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a>
+    ©
+    2021-2022
+    
+    <a href="https://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup> (<a href="https://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>,
+    <a href="https://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>, <a href="https://www.keio.ac.jp/">Keio</a>,
+    <a href="https://ev.buaa.edu.cn/">Beihang</a>). W3C
+    <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>,
+    <a href="https://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and
+    <a rel="license" href="https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document" title="W3C Software and Document Notice and License">permissive document license</a> rules apply.
+  </p>
+    <hr title="Separator for header">
+  </div>
+		<section id="abstract" class="introductory"><h2>Abstract</h2>
+			<p>Description of the MiniApp tests.</p>
+		</section>
+		<section id="sotd" class="introductory"><h2>Status of This Document</h2><p>
+      This document is merely a <abbr title="World Wide Web Consortium">W3C</abbr>-internal
+       document. It has no official standing
+      of any kind and does not represent consensus of the <abbr title="World Wide Web Consortium">W3C</abbr> Membership.
+    </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a></li><li class="tocline"><a class="tocxref" href="#sec-test-tables"><bdi class="secno">2. </bdi>Description of the Tests</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#sec-packaging-data"><bdi class="secno">2.1 </bdi>Packaging</a></li><li class="tocline"><a class="tocxref" href="#sec-manifest-data"><bdi class="secno">2.2 </bdi>Manifest</a></li><li class="tocline"><a class="tocxref" href="#sec-content-data"><bdi class="secno">2.3 </bdi>Content</a></li></ol></li><li class="tocline"><a class="tocxref" href="#contributors"><bdi class="secno">A. </bdi>Acknowledgements</a></li></ol></nav>
+
+		<section id="introduction"><div class="header-wrapper"><h2 id="x1-introduction"><bdi class="secno">1. </bdi>Introduction</h2><a class="self-link" href="#introduction" aria-label="Permalink for Section 1."></a></div>
+			
+
+			<p>
+				<a href="https://github.com/w3c/miniapp-tests">w3c/miniapp-tests</a> is the repository for the the tests to
+				validate the implementability of <abbr title="World Wide Web Consortium">W3C</abbr>'s MiniApp specifications, specifically  
+				<a href="https://www.w3.org/TR/miniapp-packaging/">MiniApp Packaging</a> (the specification for the MiniApp format itself) and the
+				<a href="https://www.w3.org/TR/miniapp-lifecycle/">MiniApp Lifecycle</a> (the specification for events related to MiniApp 
+				lifecycle), and <a href="https://www.w3.org/TR/miniapp-manifest/">MiniApp Manifest</a> (the specification for describing and configuring MiniApps through a manifest document).
+			</p>
+
+			<p>
+				The development of the tests is a community effort (see the <a href="#contributors">list of
+				contributors</a>). Everyone is welcome to contribute tests; please read the separate
+				<a href="contributing">contribution guidelines</a> if you are interested.
+			</p>
+
+			<p>This document provides a short overview for each test, grouped into separate tables by test categories. The
+			columns in the tables are as follows:</p>
+			<ol>
+				<li>The identification of each test, linked to the unzipped tests themselves in the GitHub repository.</li>
+				<li>Conformance flag of test (i.e., <code>must</code>, <code>should</code>, or <code>may</code>).</li>
+				<li>Title of the test.</li>
+				<li>Short description of the test.</li>
+				<li>References to the corresponding normative statements or sections in the MiniApp specification(s).</li>
+				<li>Pointer to the (consolidated) implementation status of the test in the separate <a href="results">implementation report</a>.</li>
+			</ol>
+
+			<p>
+				Strictly speaking, the <code>should</code> and <code>may</code> tests are not necessary for the official CR testing of
+				the specifications. These tests are currently <span id="test_visibility">visible</span> in the tables below; to change their visibility, click the 
+				switch visibility button below.
+			</p>
+		</section>
+
+		<section id="sec-test-tables"><div class="header-wrapper"><h2 id="x2-description-of-the-tests"><bdi class="secno">2. </bdi>Description of the Tests</h2><a class="self-link" href="#sec-test-tables" aria-label="Permalink for Section 2."></a></div><div id="button_container"><button id="should_may_visibility" type="button">Switch visibility</button></div><section id="packaging"><div class="header-wrapper"><h3 id="sec-packaging-data"><bdi class="secno">2.1 </bdi>Packaging</h3><a class="self-link" href="#sec-packaging-data" aria-label="Permalink for Section 2.1"></a></div><table class="zebra"><colgroup>
+            <col class="col_id">
+            <col class="col_req">
+            <col class="col_title">
+            <col>
+            <col class="col_sref">
+            <col class="col_tref">
+        </colgroup><tbody><tr>
+            <th>Id</th>
+            <th>Req</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Specs</th>
+            <th>Ref</th>
+<<<<<<< HEAD
+        </tr><tr><td class="must" id="pck-pages-same-filenames"><a href="https://github.com/w3c/miniapp-tests/tree/main/tests/pck-pages-same-filenames">pck-pages-same-filenames</a></td><td>must</td><td>A page with resources with same filename</td><td>The entry page includes three resources (.html, .css, and .js) with the same filename. The app must be loaded.</td><td><a href="https://w3c.github.io/miniapp-packaging/#sec-pages-directory"> (1)</a></td><td><a href="results.html#pck-pages-same-filenames-results">❐</a></td></tr><tr><td class="may" id="pck-root-app-css-empty"><a href="https://github.com/w3c/miniapp-tests/tree/main/tests/pck-root-app-css-empty">pck-root-app-css-empty</a></td><td>may</td><td>Empty global app.css</td><td>The app.css global stylesheet may be empty. The app must be loaded.</td><td><a href="https://w3c.github.io/miniapp-packaging/#root-directory"> (1)</a></td><td><a href="results.html#pck-root-app-css-empty-results">❐</a></td></tr></tbody></table></section><section id="manifest"><div class="header-wrapper"><h3 id="sec-manifest-data"><bdi class="secno">2.2 </bdi>Manifest</h3><a class="self-link" href="#sec-manifest-data" aria-label="Permalink for Section 2.2"></a></div><table class="zebra"><colgroup>
+=======
+        </tr><tr><td class="must" id="pkg-pages-same-filenames"><a href="https://github.com/w3c/miniapp-tests/tree/main/tests/pkg-pages-same-filenames">pkg-pages-same-filenames</a></td><td>must</td><td>A page with resources with same filename</td><td>The entry page includes three resources (.html, .css, and .js) with the same filename. The app must be loaded.</td><td><a href="https://w3c.github.io/miniapp-packaging/#sec-pages-directory"> (1)</a></td><td><a href="results.html#pkg-pages-same-filenames-results">❐</a></td></tr><tr><td class="may" id="pkg-root-app-css-empty"><a href="https://github.com/w3c/miniapp-tests/tree/main/tests/pkg-root-app-css-empty">pkg-root-app-css-empty</a></td><td>may</td><td>Empty global app.css</td><td>The app.css global stylesheet may be empty. The app must be loaded.</td><td><a href="https://w3c.github.io/miniapp-packaging/#root-directory"> (1)</a></td><td><a href="results.html#pkg-root-app-css-empty-results">❐</a></td></tr></tbody></table></section><section id="manifest"><div class="header-wrapper"><h3 id="sec-manifest-data"><bdi class="secno">2.2 </bdi>Manifest</h3><a class="self-link" href="#sec-manifest-data" aria-label="Permalink for Section 2.2"></a></div><table class="zebra"><colgroup>
+>>>>>>> a4352e8fc37995171d515eeeb8b63177deff1e7c
+            <col class="col_id">
+            <col class="col_req">
+            <col class="col_title">
+            <col>
+            <col class="col_sref">
+            <col class="col_tref">
+        </colgroup><tbody><tr>
+            <th>Id</th>
+            <th>Req</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Specs</th>
+            <th>Ref</th>
+        </tr><tr><td class="must" id="mnf-window-fullscreen-default"><a href="https://github.com/w3c/miniapp-tests/tree/main/tests/mnf-window-fullscreen-default">mnf-window-fullscreen-default</a></td><td>must</td><td>No fullscreen by default</td><td>No window's fullscreen member in the manifest. The app must not be in fullscreen mode.</td><td><a href="https://w3c.github.io/miniapp-manifest/#dfn-process-the-window-s-fullscreen-member"> (1)</a></td><td><a href="results.html#mnf-window-fullscreen-default-results">❐</a></td></tr><tr><td class="must" id="mnf-window-fullscreen-true"><a href="https://github.com/w3c/miniapp-tests/tree/main/tests/mnf-window-fullscreen-true">mnf-window-fullscreen-true</a></td><td>must</td><td>Fullscreen enabled in manifest</td><td>The window's fullscreen member is set to true in the manifest. The app must be shown in fullscreen.</td><td><a href="https://w3c.github.io/miniapp-manifest/#dfn-process-the-window-s-fullscreen-member"> (1)</a></td><td><a href="results.html#mnf-window-fullscreen-true-results">❐</a></td></tr><tr><td class="must" id="mnf-window-orientation-default"><a href="https://github.com/w3c/miniapp-tests/tree/main/tests/mnf-window-orientation-default">mnf-window-orientation-default</a></td><td>must</td><td>Portrait orientation by default</td><td>No window's orientation member in the manifest. The app display must be in portrait mode by default.</td><td><a href="https://w3c.github.io/miniapp-manifest/#dfn-process-the-window-s-orientation-member"> (1)</a></td><td><a href="results.html#mnf-window-orientation-default-results">❐</a></td></tr><tr><td class="must" id="mnf-window-orientation-landscape"><a href="https://github.com/w3c/miniapp-tests/tree/main/tests/mnf-window-orientation-landscape">mnf-window-orientation-landscape</a></td><td>must</td><td>Landscape orientation defined in manifest</td><td>The window's orientation member is set to landscape in the manifest. The app display must be in landscape mode.</td><td><a href="https://w3c.github.io/miniapp-manifest/#dfn-process-the-window-s-orientation-member"> (1)</a></td><td><a href="results.html#mnf-window-orientation-landscape-results">❐</a></td></tr><tr><td class="must" id="mnf-window-orientation-portrait"><a href="https://github.com/w3c/miniapp-tests/tree/main/tests/mnf-window-orientation-portrait">mnf-window-orientation-portrait</a></td><td>must</td><td>Portrait orientation defined in manifest</td><td>The window's orientation member is set to portrait in the manifest. The app display must be in portrait mode.</td><td><a href="https://w3c.github.io/miniapp-manifest/#dfn-process-the-window-s-orientation-member"> (1)</a></td><td><a href="results.html#mnf-window-orientation-portrait-results">❐</a></td></tr></tbody></table></section><section id="content"><div class="header-wrapper"><h3 id="sec-content-data"><bdi class="secno">2.3 </bdi>Content</h3><a class="self-link" href="#sec-content-data" aria-label="Permalink for Section 2.3"></a></div><table class="zebra"><colgroup>
+            <col class="col_id">
+            <col class="col_req">
+            <col class="col_title">
+            <col>
+            <col class="col_sref">
+            <col class="col_tref">
+        </colgroup><tbody><tr>
+            <th>Id</th>
+            <th>Req</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Specs</th>
+            <th>Ref</th>
+        </tr><tr><td class="must" id="cnt-css-support"><a href="https://github.com/w3c/miniapp-tests/tree/main/tests/cnt-css-support">cnt-css-support</a></td><td>must</td><td>Acid2 test</td><td>Recreation of the Acid2 test to check the CSS support.</td><td><a href="https://w3c.github.io/miniapp-packaging/#sec-miniapp-resources-css"> (1)</a></td><td><a href="results.html#cnt-css-support-results">❐</a></td></tr></tbody></table></section></section>
+		<section class="appendix" id="contributors"><div class="header-wrapper"><h2 id="a-acknowledgements"><bdi class="secno">A. </bdi>Acknowledgements</h2><a class="self-link" href="#contributors" aria-label="Permalink for Appendix A."></a></div>
+			
+
+			<p>The following experts contributed to the test suite:</p>
+
+			<ul><li>Martin Alvarez</li></ul>	
+		</section>
+
+	
+
+<p role="navigation" id="back-to-top">
+    <a href="#title"><abbr title="Back to Top">↑</abbr></a>
+  </p><script id="respec-dfn-panel">(() => {
+// @ts-check
+if (document.respec) {
+  document.respec.ready.then(setupPanel);
+} else {
+  setupPanel();
+}
+
+function setupPanel() {
+  const listener = panelListener();
+  document.body.addEventListener("keydown", listener);
+  document.body.addEventListener("click", listener);
+}
+
+function panelListener() {
+  /** @type {HTMLElement} */
+  let panel = null;
+  return event => {
+    const { target, type } = event;
+
+    if (!(target instanceof HTMLElement)) return;
+
+    // For keys, we only care about Enter key to activate the panel
+    // otherwise it's activated via a click.
+    if (type === "keydown" && event.key !== "Enter") return;
+
+    const action = deriveAction(event);
+
+    switch (action) {
+      case "show": {
+        hidePanel(panel);
+        /** @type {HTMLElement} */
+        const dfn = target.closest("dfn, .index-term");
+        panel = document.getElementById(`dfn-panel-for-${dfn.id}`);
+        const coords = deriveCoordinates(event);
+        displayPanel(dfn, panel, coords);
+        break;
+      }
+      case "dock": {
+        panel.style.left = null;
+        panel.style.top = null;
+        panel.classList.add("docked");
+        break;
+      }
+      case "hide": {
+        hidePanel(panel);
+        panel = null;
+        break;
+      }
+    }
+  };
+}
+
+/**
+ * @param {MouseEvent|KeyboardEvent} event
+ */
+function deriveCoordinates(event) {
+  const target = /** @type HTMLElement */ (event.target);
+
+  // We prevent synthetic AT clicks from putting
+  // the dialog in a weird place. The AT events sometimes
+  // lack coordinates, so they have clientX/Y = 0
+  const rect = target.getBoundingClientRect();
+  if (
+    event instanceof MouseEvent &&
+    event.clientX >= rect.left &&
+    event.clientY >= rect.top
+  ) {
+    // The event probably happened inside the bounding rect...
+    return { x: event.clientX, y: event.clientY };
+  }
+
+  // Offset to the middle of the element
+  const x = rect.x + rect.width / 2;
+  // Placed at the bottom of the element
+  const y = rect.y + rect.height;
+  return { x, y };
+}
+
+/**
+ * @param {Event} event
+ */
+function deriveAction(event) {
+  const target = /** @type {HTMLElement} */ (event.target);
+  const hitALink = !!target.closest("a");
+  if (target.closest("dfn:not([data-cite]), .index-term")) {
+    return hitALink ? "none" : "show";
+  }
+  if (target.closest(".dfn-panel")) {
+    if (hitALink) {
+      return target.classList.contains("self-link") ? "hide" : "dock";
+    }
+    const panel = target.closest(".dfn-panel");
+    return panel.classList.contains("docked") ? "hide" : "none";
+  }
+  if (document.querySelector(".dfn-panel:not([hidden])")) {
+    return "hide";
+  }
+  return "none";
+}
+
+/**
+ * @param {HTMLElement} dfn
+ * @param {HTMLElement} panel
+ * @param {{ x: number, y: number }} clickPosition
+ */
+function displayPanel(dfn, panel, { x, y }) {
+  panel.hidden = false;
+  // distance (px) between edge of panel and the pointing triangle (caret)
+  const MARGIN = 20;
+
+  const dfnRects = dfn.getClientRects();
+  // Find the `top` offset when the `dfn` can be spread across multiple lines
+  let closestTop = 0;
+  let minDiff = Infinity;
+  for (const rect of dfnRects) {
+    const { top, bottom } = rect;
+    const diffFromClickY = Math.abs((top + bottom) / 2 - y);
+    if (diffFromClickY < minDiff) {
+      minDiff = diffFromClickY;
+      closestTop = top;
+    }
+  }
+
+  const top = window.scrollY + closestTop + dfnRects[0].height;
+  const left = x - MARGIN;
+  panel.style.left = `${left}px`;
+  panel.style.top = `${top}px`;
+
+  // Find if the panel is flowing out of the window
+  const panelRect = panel.getBoundingClientRect();
+  const SCREEN_WIDTH = Math.min(window.innerWidth, window.screen.width);
+  if (panelRect.right > SCREEN_WIDTH) {
+    const newLeft = Math.max(MARGIN, x + MARGIN - panelRect.width);
+    const newCaretOffset = left - newLeft;
+    panel.style.left = `${newLeft}px`;
+    /** @type {HTMLElement} */
+    const caret = panel.querySelector(".caret");
+    caret.style.left = `${newCaretOffset}px`;
+  }
+
+  // As it's a dialog, we trap focus.
+  // TODO: when <dialog> becomes a implemented, we should really
+  // use that.
+  trapFocus(panel, dfn);
+}
+
+/**
+ * @param {HTMLElement} panel
+ * @param {HTMLElement} dfn
+ * @returns
+ */
+function trapFocus(panel, dfn) {
+  /** @type NodeListOf<HTMLAnchorElement> elements */
+  const anchors = panel.querySelectorAll("a[href]");
+  // No need to trap focus
+  if (!anchors.length) return;
+
+  // Move focus to first anchor element
+  const first = anchors.item(0);
+  first.focus();
+
+  const trapListener = createTrapListener(anchors, panel, dfn);
+  panel.addEventListener("keydown", trapListener);
+
+  // Hiding the panel releases the trap
+  const mo = new MutationObserver(records => {
+    const [record] = records;
+    const target = /** @type HTMLElement */ (record.target);
+    if (target.hidden) {
+      panel.removeEventListener("keydown", trapListener);
+      mo.disconnect();
+    }
+  });
+  mo.observe(panel, { attributes: true, attributeFilter: ["hidden"] });
+}
+
+/**
+ *
+ * @param {NodeListOf<HTMLAnchorElement>} anchors
+ * @param {HTMLElement} panel
+ * @param {HTMLElement} dfn
+ * @returns
+ */
+function createTrapListener(anchors, panel, dfn) {
+  const lastIndex = anchors.length - 1;
+  let currentIndex = 0;
+  return event => {
+    switch (event.key) {
+      // Hitting "Tab" traps us in a nice loop around elements.
+      case "Tab": {
+        event.preventDefault();
+        currentIndex += event.shiftKey ? -1 : +1;
+        if (currentIndex < 0) {
+          currentIndex = lastIndex;
+        } else if (currentIndex > lastIndex) {
+          currentIndex = 0;
+        }
+        anchors.item(currentIndex).focus();
+        break;
+      }
+
+      // Hitting "Enter" on an anchor releases the trap.
+      case "Enter":
+        hidePanel(panel);
+        break;
+
+      // Hitting "Escape" returns focus to dfn.
+      case "Escape":
+        hidePanel(panel);
+        dfn.focus();
+        return;
+    }
+  };
+}
+
+/** @param {HTMLElement} panel */
+function hidePanel(panel) {
+  if (!panel) return;
+  panel.hidden = true;
+  panel.classList.remove("docked");
+}
+})()</script><script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script></body></html>
