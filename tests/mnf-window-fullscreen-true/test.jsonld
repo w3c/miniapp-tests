@@ -19,7 +19,7 @@
     "dc:identifier": "mnf-window-fullscreen-true",
     "dc:description": "The window's fullscreen member is set to true in the manifest. The app must be shown in fullscreen.",
     "dcterms:isReferencedBy": [
-      "https://www.w3.org/TR/miniapp-manifest/#dfn-process-the-window-s-fullscreen-member"
+      "https://www.w3.org/TR/miniapp-manifest/#sec-window-fullscreen-member"
     ],
     "dcterms:modified": "2022-07-08T00:00:00Z"
 }

@@ -19,7 +19,7 @@
     "dc:identifier": "mnf-window-fullscreen-default",
     "dc:description": "No window's full-screen member declared in the manifest, so ehe app must not be in full-screen mode.",
     "dcterms:isReferencedBy": [
-      "https://www.w3.org/TR/miniapp-manifest/#dfn-process-the-window-s-fullscreen-member"
+      "https://www.w3.org/TR/miniapp-manifest/#sec-window-fullscreen-member"
     ],
     "dcterms:modified": "2022-07-08T00:00:00Z"
 }

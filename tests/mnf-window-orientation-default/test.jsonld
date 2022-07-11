@@ -19,7 +19,7 @@
     "dc:identifier": "mnf-window-orientation-default",
     "dc:description": "No window's orientation member declared in the manifest, so the app display must be in portrait mode by default.",
     "dcterms:isReferencedBy": [
-      "https://www.w3.org/TR/miniapp-manifest/#dfn-process-the-window-s-orientation-member"
+      "https://www.w3.org/TR/miniapp-manifest/#sec-window-orientation-member"
     ],
     "dcterms:modified": "2022-07-08T00:00:00Z"
 }
