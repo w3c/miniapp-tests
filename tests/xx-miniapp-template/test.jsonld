@@ -14,7 +14,10 @@
   "@type": "earl:TestCase",
   "dc:coverage": "TODO: Report Category",
   "dcterms:conformsTo": "must",
-  "dc:creator": "TODO: Your Name",
+  "dc:creator": [
+    "TODO: Your Name",
+    "TODO: Other author´s name"
+  ],
   "dc:date": "TODO: 2022-06-01",
   "dc:title": "TODO: Concise test title",
   "dc:identifier": "TODO: test-id",

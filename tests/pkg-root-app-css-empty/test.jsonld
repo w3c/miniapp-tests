@@ -9,12 +9,12 @@
       "@type": "@id"
     }
   },
-  "dcterms:rights": "https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document",
-  "dcterms:rightsHolder": "https://www.w3.org",
   "@type": "earl:TestCase",
   "dc:coverage": "Packaging",
   "dcterms:conformsTo": "may",
-  "dc:creator": "Martin Alvarez",
+  "dc:creator": [
+    "Martin Alvarez"
+  ],
   "dc:date": "2022-07-08",
   "dc:title": "Empty global app.css",
   "dc:identifier": "pkg-root-app-css-empty",
@@ -22,5 +22,7 @@
   "dcterms:isReferencedBy": [
     "https://www.w3.org/TR/miniapp-packaging/#root-directoy-app-css"
   ],
-  "dcterms:modified": "2022-07-11T00:00:00Z"
+  "dcterms:modified": "2022-07-11T00:00:00Z",
+  "dcterms:rights": "https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document",
+  "dcterms:rightsHolder": "https://www.w3.org"
 }
