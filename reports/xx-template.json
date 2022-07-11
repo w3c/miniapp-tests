@@ -3,6 +3,7 @@
     "ref": "https://www.example.com",
     "tests": {
         "cnt-css-global-support": null,
+        "mnf-window-background-color": null,
         "mnf-window-fullscreen-default": null,
         "mnf-window-fullscreen-true": null,
         "mnf-window-orientation-default": null,
