@@ -172,3 +172,10 @@ export interface ReportData {
     implementers : Implementer[];
     consolidated_implementers: Implementer[];
 } 
+
+/**
+ * Metadata to add in the test cases if it´s not included
+ */
+ export interface DCRightsMetadata {
+    [key: string]: string;
+} 
