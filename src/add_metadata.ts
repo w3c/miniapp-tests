@@ -28,7 +28,7 @@ async function main(new_metadata: DCRightsMetadata): Promise<void> {
         const metadata_file_name = await get_jsonld_file(file_name)
         const metadata_file = await `${file_name}/${metadata_file_name}`;
         const metadata_jsonld = JSON.parse(await fs.readFile(metadata_file,'utf-8'));
-        const new_metadata_keys = Object.keys(new_metadata) 
+        const old_metadata_keys = Object.keys(metadata_jsonld) 
         const new_json = { ...metadata_jsonld }
 
         Object.keys(new_metadata).forEach(key => {
@@ -39,7 +39,7 @@ async function main(new_metadata: DCRightsMetadata): Promise<void> {
         });
  
         // If the new object has more keys than the original one
-        if (Object.keys(new_json).length > new_metadata_keys.length) {
+        if (Object.keys(new_json).length > old_metadata_keys.length) {
             // Write back the data into the MiniApp file
             await fs.writeFile(metadata_file, JSON.stringify(new_json, null, '  '));
         } 
