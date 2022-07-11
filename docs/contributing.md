@@ -11,7 +11,7 @@ _Based on the [EPUB testing methodology and code](#acknowledgements)._
 
 This repository contains tests to validate the implementations of the W3C's MiniApp specifications, specifically [MiniApp Packaging](https://www.w3.org/TR/miniapp-packaging/) (the spec for the MiniApp format itself), [MiniApp Manifest](https://www.w3.org/TR/miniapp-manifest/) (the spec to define a MiniApp and its configuration), and [MiniApp Lifecycle](https://www.w3.org/TR/miniapp-lifecycle/) (the spec that defines the events and APIs to control the execution lifecycle of a MiniApp). Our
 objective is to test every normative statement (that is, every
-[`MUST` or `SHOULD` or `MAY`](https://datatracker.ietf.org/doc/html/bcp14), etc.). 
+[`MUST` or `SHOULD` or `MAY`](https://www.rfc-editor.org/info/bcp14), etc.). 
 
 Existing tests are described in the [generated test reports](#generated-test-reports).
 
