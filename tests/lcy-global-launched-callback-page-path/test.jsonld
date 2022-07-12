@@ -23,7 +23,7 @@
   "dc:identifier": "lcy-global-launched-callback-page-path",
   "dc:description": "Once the app is launched and the first page is shown, the callback must return an object. The pagePath member must be the same as the first page.",
   "dcterms:isReferencedBy": [
-    "https://w3c.github.io/miniapp-lifecycle/#globalshowncallback"
+    "https://www.w3.org/TR/miniapp-lifecycle/#globalshowncallback"
   ],
   "dcterms:modified": "2022-07-12T00:00:00Z"
 }
