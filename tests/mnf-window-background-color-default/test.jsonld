@@ -17,12 +17,12 @@
   "dc:creator": [
     "Martin Alvarez"
   ],
-  "dc:date": "2022-07-11",
-  "dc:title": "Window background color set",
-  "dc:identifier": "mnf-window-background-color",
-  "dc:description": "The window's background member is set to #00FF00, so the app page must have a green background.",
+  "dc:date": "2022-07-12",
+  "dc:title": "Window background color set by default",
+  "dc:identifier": "mnf-window-background-color-default",
+  "dc:description": "If window's background member is not set, the app page must have a white background by default.",
   "dcterms:isReferencedBy": [
-    "https://www.w3.org/TR/miniapp-manifest/#sec-window-background-color"
+    "https://www.w3.org/TR/miniapp-manifest/#sec-window-background-color-default"
   ],
-  "dcterms:modified": "2022-07-11T00:00:00Z"
+  "dcterms:modified": "2022-07-12T00:00:00Z"
 }
