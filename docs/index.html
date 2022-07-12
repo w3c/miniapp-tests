@@ -336,7 +336,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       This document is merely a <abbr title="World Wide Web Consortium">W3C</abbr>-internal
        document. It has no official standing
       of any kind and does not represent consensus of the <abbr title="World Wide Web Consortium">W3C</abbr> Membership.
-    </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a></li><li class="tocline"><a class="tocxref" href="#sec-test-tables"><bdi class="secno">2. </bdi>Description of the Tests</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#sec-packaging-data"><bdi class="secno">2.1 </bdi>Packaging</a></li><li class="tocline"><a class="tocxref" href="#sec-manifest-data"><bdi class="secno">2.2 </bdi>Manifest</a></li><li class="tocline"><a class="tocxref" href="#sec-content-data"><bdi class="secno">2.3 </bdi>Content</a></li></ol></li><li class="tocline"><a class="tocxref" href="#contributors"><bdi class="secno">A. </bdi>Acknowledgements</a></li></ol></nav>
+    </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a></li><li class="tocline"><a class="tocxref" href="#sec-test-tables"><bdi class="secno">2. </bdi>Description of the Tests</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#sec-packaging-data"><bdi class="secno">2.1 </bdi>Packaging</a></li><li class="tocline"><a class="tocxref" href="#sec-manifest-data"><bdi class="secno">2.2 </bdi>Manifest</a></li><li class="tocline"><a class="tocxref" href="#sec-content-data"><bdi class="secno">2.3 </bdi>Content</a></li><li class="tocline"><a class="tocxref" href="#sec-lifecycle-data"><bdi class="secno">2.4 </bdi>Lifecycle</a></li></ol></li><li class="tocline"><a class="tocxref" href="#contributors"><bdi class="secno">A. </bdi>Acknowledgements</a></li></ol></nav>
 
 		<section id="introduction"><div class="header-wrapper"><h2 id="x1-introduction"><bdi class="secno">1. </bdi>Introduction</h2><a class="self-link" href="#introduction" aria-label="Permalink for Section 1."></a></div>
 			
@@ -415,13 +415,27 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
             <th>Description</th>
             <th>Specs</th>
             <th>Ref</th>
-        </tr><tr><td class="must" id="cnt-css-global-support"><a href="https://github.com/w3c/miniapp-tests/tree/main/tests/cnt-css-global-support">cnt-css-global-support</a></td><td>must</td><td>Global CSS stylesheet affects all pages</td><td>Global CSS stylesheet must affect all pages. The test includes CSS properties in the app.css over that will affect the text on the entry page, showing a black text on yellow background.</td><td><a href="https://w3c.github.io/miniapp-packaging/#sec-miniapp-resources-css"> (1)</a></td><td><a href="results.html#cnt-css-global-support-results">❐</a></td></tr></tbody></table></section></section>
+        </tr><tr><td class="must" id="cnt-css-global-support"><a href="https://github.com/w3c/miniapp-tests/tree/main/tests/cnt-css-global-support">cnt-css-global-support</a></td><td>must</td><td>Global CSS stylesheet affects all pages</td><td>Global CSS stylesheet must affect all pages. The test includes CSS properties in the app.css over that will affect the text on the entry page, showing a black text on yellow background.</td><td><a href="https://w3c.github.io/miniapp-packaging/#sec-miniapp-resources-css"> (1)</a></td><td><a href="results.html#cnt-css-global-support-results">❐</a></td></tr></tbody></table></section><section id="lifecycle"><div class="header-wrapper"><h3 id="sec-lifecycle-data"><bdi class="secno">2.4 </bdi>Lifecycle</h3><a class="self-link" href="#sec-lifecycle-data" aria-label="Permalink for Section 2.4"></a></div><table class="zebra"><colgroup>
+            <col class="col_id">
+            <col class="col_req">
+            <col class="col_title">
+            <col>
+            <col class="col_sref">
+            <col class="col_tref">
+        </colgroup><tbody><tr>
+            <th>Id</th>
+            <th>Req</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Specs</th>
+            <th>Ref</th>
+        </tr><tr><td class="must" id="lcy-global-launched-callback-page-path"><a href="https://github.com/w3c/miniapp-tests/tree/main/tests/lcy-global-launched-callback-page-path">lcy-global-launched-callback-page-path</a></td><td>must</td><td>Global shown callback on the first page</td><td>Once the app is launched and the first page is shown, the callback must return an object. The pagePath member must be the same as the first page.</td><td><a href="https://w3c.github.io/miniapp-lifecycle/#globalshowncallback"> (1)</a></td><td><a href="results.html#lcy-global-launched-callback-page-path-results">❐</a></td></tr></tbody></table></section></section>
 		<section class="appendix" id="contributors"><div class="header-wrapper"><h2 id="a-acknowledgements"><bdi class="secno">A. </bdi>Acknowledgements</h2><a class="self-link" href="#contributors" aria-label="Permalink for Appendix A."></a></div>
 			
 
 			<p>The following experts contributed to the test suite:</p>
 
-			<ul><li>Martin Alvarez</li></ul>	
+			<ul><li>Martin Alvarez</li><li>Qing An</li></ul>	
 
 			<p>This testing methodology is based on the <a href="https://w3c.github.io/epub-tests/">EPUB tests</a>, developed by <a href="https://www.w3.org/People/Ivan/">Ivan Herman</a>, Dan Lazin, and the rest of <a href="https://www.w3.org/publishing/groups/epub-wg/">the group</a>.</p>
 		</section>
