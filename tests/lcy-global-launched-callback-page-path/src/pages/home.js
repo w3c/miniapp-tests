@@ -4,4 +4,3 @@
  * of the MiniApp. It includes the essential configuration and control of the page 
  * lifecycle.
  */
-

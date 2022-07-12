@@ -1,0 +1,29 @@
+{
+  "@context": {
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "earl": "http://www.w3.org/ns/earl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "foaf:page": {
+      "@type": "@id"
+    }
+  },
+  "dcterms:rights": "https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document",
+  "dcterms:rightsHolder": "https://www.w3.org",
+  "@type": "earl:TestCase",
+  "dc:coverage": "Lifecycle",
+  "dcterms:conformsTo": "must",
+  "dc:creator": [
+    "Martin Alvarez",
+    "Qing An"
+  ],
+  "dc:date": "2022-07-12",
+  "dc:title": "Global shown callback on the first page",
+  "dc:identifier": "lcy-global-launched-callback-page-path",
+  "dc:description": "Once the app is launched and the first page is shown, the callback must return an object. The pagePath member must be the same as the first page.",
+  "dcterms:isReferencedBy": [
+    "https://w3c.github.io/miniapp-lifecycle/#globalshowncallback"
+  ],
+  "dcterms:modified": "2022-07-12T00:00:00Z"
+}
