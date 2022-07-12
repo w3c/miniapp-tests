@@ -6,11 +6,3 @@
  * showing, and hiding the MiniApp.
  */
 
- export default {
-  onCreate() {
-    console.log('MiniApp created')
-  },
-  onDestroy: function () {
-    console.log('MiniApp destroyed')
-  }
-}

@@ -5,8 +5,3 @@
  * lifecycle.
  */
 
- export default {
-    onInit() {
-        console.log('Home page initiated')
-    }
-}
