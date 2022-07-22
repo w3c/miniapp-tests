@@ -8,15 +8,16 @@
 
 
 const globalLaunchedCallback = function(inputObject) {
-}
-
-const globalShownCallback = function(inputObject) {
   console.log(`<${inputObject.pagePath}> must be equal to <pages/home/home>`);
-  if (inputObject.pagePath === 'pages/home/home') {
+  console.log(`<${globalState}> must be equal to launched`);
+  if (inputObject.pagePath === 'pages/home/home' && globalState === 'launched') {
     console.log('TEST PASSED')
   } else {
     console.warn('TEST FAILED')
   }
+}
+
+const globalShownCallback = function(inputObject) {
 }
 
 const globalHiddenCallback = function() {
@@ -25,10 +26,12 @@ const globalHiddenCallback = function() {
 const globalErrorCallback = function(lifecycleError) {
 }
 
-const state = global.getGlobalState (
+const globalState = global.getGlobalState (
   globalLaunchedCallback,
   globalShownCallback,
   globalHiddenCallback,
   globalErrorCallback
 );
+
+
 
