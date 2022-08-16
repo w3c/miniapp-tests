@@ -200,6 +200,8 @@ The report consists of two HTML pages, namely:
 
 If you want to create and debug your tests locally, you can do it using the `local_tests/` directory instead of `tests/`. These local tests won´t be added to the repository (it´s in the `.gitignore` document). You can create the documentation based on these local tests, just running the `debug` script using the command `npm run debug`. The script will generate the documentation using the content of `local_tests/`.
 
+Read more about [Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
+
 ### Generate .ma files
 
 There is also another script that you can use to pack the unit tests you create. If you run `npm run add_metadata`, the script will add the `dcterms:rightsHolder` and `dcterms:rights` in every test description, if the metadata is not there. After that, the tests will be zipped into a `.ma` file with the same filename as the unit test directory you created. 
