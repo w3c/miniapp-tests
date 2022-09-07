@@ -2,7 +2,6 @@
     "name": "(Implementation's name)",
     "ref": "https://www.example.com",
     "tests": {
-        "cnt-css-global-support": null,
         "lcy-global-launched-callback-page-path": null,
         "mnf-window-background-color": null,
         "mnf-window-background-color-default": null,
@@ -11,6 +10,7 @@
         "mnf-window-orientation-default": null,
         "mnf-window-orientation-landscape": null,
         "mnf-window-orientation-portrait": null,
+        "pkg-css-global-support": null,
         "pkg-pages-same-filenames": null,
         "pkg-root-app-css-empty": null
     }
