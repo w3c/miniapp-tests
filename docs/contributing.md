@@ -67,7 +67,7 @@ TODO: List the MiniApp user agents.
 ## Naming
 
 Test names should start with a three-letter abbreviation that corresponds to the value of the [`dc:coverage`](#metadata)
-element below (for example, `cnt` for content of MiniApps, `pkg` for Packaging, etc.), followed by a short hyphenated
+element below (for example, `mnf` for Manifest, `pkg` for Packaging, etc.), followed by a short hyphenated
 identifier that makes clear which requirement is under test. 
 
 If multiple tests are necessary for a single normative statement, differentiate the test cases by appending an underscore and

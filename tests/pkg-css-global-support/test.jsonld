@@ -10,14 +10,14 @@
     }
   },
   "@type": "earl:TestCase",
-  "dc:coverage": "Content",
+  "dc:coverage": "Packaging",
   "dcterms:conformsTo": "must",
   "dc:creator": [
     "Martin Alvarez"
   ],
   "dc:date": "2022-07-08",
   "dc:title": "Global CSS stylesheet affects all pages",
-  "dc:identifier": "cnt-css-global-support",
+  "dc:identifier": "pkg-css-global-support",
   "dc:description": "Global CSS stylesheet must affect all pages. The test includes CSS properties in the app.css over that will affect the text on the entry page, showing a black text on yellow background.",
   "dcterms:isReferencedBy": [
     "https://www.w3.org/TR/miniapp-packaging/#sec-miniapp-resources-css"

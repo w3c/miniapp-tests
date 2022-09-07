@@ -17,10 +17,6 @@
     "coverage_labels": [
         "Packaging",
         "Manifest",
-        "Content",
-        "Internationalization",
-        "Scripting",
-        "Lifecycle",
-        "APIs"
+        "Lifecycle"
     ]
 }
