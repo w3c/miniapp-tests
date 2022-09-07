@@ -19,12 +19,12 @@ This page explains how to write new tests.
 
 ## Prerequisites
 
-* Install any utility or local script that can turn an MiniApp folder into a ZIP-compressed MiniApp file.
+* Install any utility or local script that can turn an MiniApp folder into a ZIP-compressed MiniApp file (you can also use an `npm` script for that as mentioned in [debugging](#debugging)).
    
 * Ensure you have several MiniApp user agents available to validate your tests (that is, validate that you have written the
   test correctly; many tests will nonetheless fail in individual reading systems).
 
-TODO: List the MiniApp user agents. 
+TODO: List the MiniApp user agents.
 
 
 ## Step-by-step
@@ -196,6 +196,17 @@ The report consists of two HTML pages, namely:
   results along with their results tables. Each table has one row per test and one column per implementation, with cells
   indicating whether the test passed, failed, or has not been run.
 
+## Debugging
+
+If you want to create and debug your tests locally, you can do it using the `local_tests/` directory instead of `tests/`. These local tests won´t be added to the repository (it´s in the `.gitignore` document). You can create the documentation based on these local tests, just running the `debug` script using the command `npm run debug`. The script will generate the documentation using the content of `local_tests/`.
+
+Read more about [Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
+
+### Generate .ma files
+
+There is also another script that you can use to pack the unit tests you create. If you run `npm run add_metadata`, the script will add the `dcterms:rightsHolder` and `dcterms:rights` in every test description, if the metadata is not there. After that, the tests will be zipped into a `.ma` file with the same filename as the unit test directory you created. 
+
+For instance, the test under `tests/cnt-css-global-support/` will generate the `tests/cnt-css-global-support.ma` MiniApp.
 
 ## Acknowledgements
 
